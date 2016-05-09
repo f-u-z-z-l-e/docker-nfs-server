@@ -10,7 +10,8 @@ do
  fi
 done
 
-/usr/sbin/rpc.idmapd
+/sbin/rpcbind
 /usr/sbin/rpc.statd --no-notify
 /usr/sbin/rpc.nfsd 8
-/usr/sbin/rpc.mountd -V 4 -V 3 -N 2
+/usr/sbin/rpc.mountd -V 3 -N 2 -N 4
+/usr/sbin/exportfs -ra 2>&1 > /dev/null
