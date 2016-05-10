@@ -17,7 +17,7 @@ You will need to provide at the following 3 environment variables to configure t
 When the container is started, the **init-container.sh** script parses the environment variables and creates the following output in **/etc/exports** file:
 
     NFS_EXPORT_DIR_1 NFS_EXPORT_DOMAIN_1(NFS_EXPORT_OPTIONS_1)
-for the example given it the following line in **/etc/exports** would be created:
+for the example given the following line in **/etc/exports** would be created:
 
     /tmp 192.168.1.0/24(ro,insecure,no_subtree_check)
 
