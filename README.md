@@ -8,6 +8,10 @@
     -e NFS_EXPORT_OPTIONS_1=ro,insecure,no_subtree_check \
     fuzzle/docker-nfs-server:v1
 
+## volumes
+You will need to provide the container with the volume(s) that you want to expose via nfs
+    -v <local path>:<path in container>
+
 ## environment variables
 You will need to provide at the following 3 environment variables to configure the nfs exports:
 * NFS_EXPORT_DIR_1
@@ -27,5 +31,5 @@ To define multiple exports, just increment the index on the environment variable
 There seems to be a bug on systems with ipv6 disabled kernels/configs:
 [have a look at the mailing list](http://www.spinics.net/lists/linux-nfs/msg53046.html)
 
-need to wait for nfs-utils-1.3.4 ipv6 problem!
+need to wait for nfs-utils-1.3.4
 
