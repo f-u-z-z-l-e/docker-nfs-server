@@ -1,13 +1,17 @@
 #!/bin/bash
-for i in {1..10}
+NFS_EXPORT_DIRS=$(compgen -A variable|grep NFS_EXPORT_DIR)
+
+for dir in $NFS_EXPORT_DIRS
 do
- dir=NFS_EXPORT_DIR_$i
- net=NFS_EXPORT_DOMAIN_$i
- opt=NFS_EXPORT_OPTIONS_$i
+ index=${dir##*_}
+
+ net=NFS_EXPORT_DOMAIN_$index
+ opt=NFS_EXPORT_OPTIONS_$index
 
  if [[ -n ${!dir} ]] && [[ -n ${!net} ]] && [[ -n ${!opt} ]] ; then
-  echo -e '\b'${!dir} ${!net}'('${!opt}')' >> /etc/exports
+  echo -e '\b'${!dir} ${!net}'('${!opt}')' >> exports
  fi
+
 done
 
 /sbin/rpcbind
