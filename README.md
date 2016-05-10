@@ -10,6 +10,7 @@
 
 ## volumes
 You will need to provide the container with the volume(s) that you want to expose via nfs
+    
     -v <local path>:<path in container>
 
 ## environment variables
