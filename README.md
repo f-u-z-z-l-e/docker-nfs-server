@@ -35,3 +35,5 @@ To define multiple exports, just increment the index on the environment variable
 * eliminate --privileged mode, have a look ...
  * [here](http://linux.die.net/man/7/capabilities)
  * and [here](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)
+* Setup automated build
+ * [Automated Builds](https://docs.docker.com/docker-hub/builds/)
