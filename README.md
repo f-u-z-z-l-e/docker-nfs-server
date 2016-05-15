@@ -28,6 +28,9 @@ for the example given the following line in **/etc/exports** would be created:
 
 To define multiple exports, just increment the index on the environment variables
 
+## build command
+    docker build -t fuzzle/docker-nfs-server:v1 .
+
 ## Todo
 * There seems to be a bug on systems with ipv6 disabled kernels/configs:
 [have a look at the mailing list](http://www.spinics.net/lists/linux-nfs/msg53046.html)
