@@ -1,3 +1,0 @@
-#!/usr/bin/execlineb -P
-/usr/sbin/rpc.nfsd 8
-

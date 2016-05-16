@@ -1,2 +1,2 @@
 #!/usr/bin/execlineb -P
-/sbin/rpcbind
+/sbin/rpcbind -d

@@ -14,6 +14,6 @@ RUN apk --update upgrade && \
 # Install s6 run-scripts
 COPY ["rootfs","/"]
 
-EXPOSE 111/udp 2049/tcp
+EXPOSE 111/udp 2049/udp 2049/tcp
 
 ENTRYPOINT ["/init"]
