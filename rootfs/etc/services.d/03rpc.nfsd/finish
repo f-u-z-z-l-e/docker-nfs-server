@@ -1,4 +1,0 @@
-#!/usr/bin/execlineb -P
-/usr/sbin/rpc.nfsd 0 
-echo 'rpc.nfsd finish called!'
-

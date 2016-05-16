@@ -1,11 +1,12 @@
 # docker-nfs-server
 
 ## to start
-    docker run --privileged \
+    docker run -d --privileged \
     -v /tmp:/tmp \
     -e NFS_EXPORT_DIR_1=/tmp \
-    -e NFS_EXPORT_DOMAIN_1=192.168.1.0/24 \
+    -e NFS_EXPORT_DOMAIN_1=\* \
     -e NFS_EXPORT_OPTIONS_1=ro,insecure,no_subtree_check \
+    -p 111:111 -p 2049:2049 \
     fuzzle/docker-nfs-server:v1
 
 ## volumes
@@ -19,17 +20,20 @@ You will need to provide at the following 3 environment variables to configure t
 * NFS_EXPORT_DOMAIN_1
 * NFS_EXPORT_OPTIONS_1
 
-When the container is started, the **init-container.sh** script parses the environment variables and creates the following output in **/etc/exports** file:
+When the container is started, the environment variables are parsed and the following output is created in **/etc/exports** file:
 
     NFS_EXPORT_DIR_1 NFS_EXPORT_DOMAIN_1(NFS_EXPORT_OPTIONS_1)
 for the example given the following line in **/etc/exports** would be created:
 
-    /tmp 192.168.1.0/24(ro,insecure,no_subtree_check)
+    /tmp *(ro,insecure,no_subtree_check)
 
 To define multiple exports, just increment the index on the environment variables
 
 ## build command
     docker build -t fuzzle/docker-nfs-server:v1 .
+
+## inspect running container
+docker exec -ti <container> bash
 
 ## Todo
 * There seems to be a bug on systems with ipv6 disabled kernels/configs:

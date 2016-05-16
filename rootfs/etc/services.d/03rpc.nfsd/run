@@ -1,4 +1,0 @@
-#!/usr/bin/execlineb -P
-/usr/sbin/rpc.nfsd -V3 -N2 -N4 -d 8 
-echo 'rpc.nfsd run called'
-

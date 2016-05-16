@@ -1,6 +1,6 @@
 #!/bin/bash
 NFS_EXPORT_DIRS=$(compgen -A variable|grep NFS_EXPORT_DIR)
-
+echo 'configure-exports called!'
 for dir in $NFS_EXPORT_DIRS
 do
  index=${dir##*_}
@@ -12,5 +12,5 @@ do
   echo -e ${!dir} ${!net}'('${!opt}')'
  fi
 
-done >/etc/exports 
+done>/etc/exports 
 
