@@ -26,12 +26,12 @@ do
 
 if ! is_process_running 'rpcbind'; then
  echo 'starting rpcbind'
- /sbin/rpcbind
+ /sbin/rpcbind -i
 fi
 
 if ! is_process_running 'rpc.statd'; then
  echo 'starting rpc.statd'
- /usr/sbin/rpc.statd --no-notify
+ /usr/sbin/rpc.statd --no-notify --port 32765 --outgoing-port 32766
  sleep .5
 fi
 
@@ -43,7 +43,7 @@ fi
 
 if ! is_process_running 'rpc.mountd'; then
  echo 'starting rpc.mountd'
- /usr/sbin/rpc.mountd -V3 -N2 -N4
+ /usr/sbin/rpc.mountd -V3 -N2 -N4 --port 32767
  /usr/sbin/exportfs -ra
 fi
 

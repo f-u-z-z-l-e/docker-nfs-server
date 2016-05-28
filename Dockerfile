@@ -12,6 +12,6 @@ COPY ["/start-container.bash","/"]
 RUN ["chmod","755","/configure-exports.bash"]
 RUN ["chmod","755","/start-container.bash"]
 
-EXPOSE 111/udp 2049/udp 2049/tcp
+EXPOSE 111/tcp 111/udp 2049/tcp 2049/udp 32765/tcp 32765/udp 32766/tcp 32766/udp 32767/tcp 32767/udp
 
 ENTRYPOINT ["/start-container.bash"]
