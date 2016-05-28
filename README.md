@@ -1,7 +1,7 @@
 # docker-nfs-server
 
 ## to start
-    docker run -d --privileged \
+    docker run -d --privileged --restart=always \
     -v /tmp:/nfs \
     -e NFS_EXPORT_DIR_1=/nfs \
     -e NFS_EXPORT_DOMAIN_1=\* \
@@ -29,7 +29,7 @@ When the container is started, the environment variables are parsed and the foll
     NFS_EXPORT_DIR_1 NFS_EXPORT_DOMAIN_1(NFS_EXPORT_OPTIONS_1)
 for the example given the following line in **/etc/exports** would be created:
 
-    /nfs *(ro,insecure,no_subtree_check)
+    /nfs *(ro,insecure,no_subtree_check, no_root_squash, fsid=1)
 
 To define multiple exports, just increment the index on the environment variables
 
@@ -37,7 +37,7 @@ To define multiple exports, just increment the index on the environment variable
     docker build -t fuzzle/docker-nfs-server:v1 .
 
 ## inspect running container
-docker exec -ti <container> bash
+docker exec -ti CONTAINER bash
 
 ## mounting the nfs share from another host
 mount -v -t nfs -o ro,nfsvers=3,nolock,proto=udp,port=2049 <ip_address_docker_host>:/nfs /mnt/scratch
