@@ -9,7 +9,7 @@ do
  opt=NFS_EXPORT_OPTIONS_$index
 
  if [[ -n ${!dir} ]] && [[ -n ${!net} ]] && [[ -n ${!opt} ]] ; then
-  echo -e ${!dir} ${!net}'('${!opt}')'
+  echo ${!dir} ${!net}'('${!opt}')'
  fi
 
 done>/etc/exports 
