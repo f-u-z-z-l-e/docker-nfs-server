@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 'starting avahi-daemon'
+/usr/sbin/avahi-daemon -D
+
 /bin/bash configure-exports.bash
 echo $(cat /etc/exports)
 

@@ -5,6 +5,7 @@ MAINTAINER Ali Bengali <ali-beng-ali@users.noreply.github.com>
 # Install bash & nfs-utils
 RUN apk --update upgrade && \
  apk add bash nfs-utils && \
+ apk add avahi && \
  rm -rf /var/cache/apk/*
 
 COPY ["/configure-exports.bash","/"]
