@@ -14,3 +14,4 @@ do
 
 done>/etc/exports 
 
+sed -i 's/#enable-dbus=yes/enable-dbus=no/g' /etc/avahi/avahi-daemon.conf
