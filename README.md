@@ -11,7 +11,7 @@
     -p 32765:32765 -p 32765:32765/udp \
     -p 32766:32766 -p 32766:32766/udp \
     -p 32767:32767 -p 32767:32767/udp \
-    fuzzle/docker-nfs-server:v1
+    fuzzle/docker-nfs-server:latest
 
 ## volumes
 You will need to provide the container with the volume(s) that you want to expose via nfs
