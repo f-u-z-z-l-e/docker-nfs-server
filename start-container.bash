@@ -31,7 +31,7 @@ fi
 
 if ! is_process_running 'rpc.statd'; then
  echo 'starting rpc.statd'
- /usr/sbin/rpc.statd --no-notify --port 32765 --outgoing-port 32766
+ /sbin/rpc.statd --no-notify --port 32765 --outgoing-port 32766
  sleep .5
 fi
 
